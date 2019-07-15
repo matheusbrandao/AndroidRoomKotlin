@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AndroidRoomKotlin</string>
+    <string name="title_activity_lista_alunos">ListaAlunosActivity</string>
+    <string name="nome">nome</string>
+    <string name="telefone">telefone</string>
+    <string name="email">email</string>
+</resources>
