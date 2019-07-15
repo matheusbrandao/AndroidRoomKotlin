@@ -16,6 +16,7 @@ object Database {
 
     @Volatile
     private lateinit var database: AgendaDatabase
+    private const val NOME_DO_BANCO = "listaalunos-database"
 
     fun instance(context: Context): AgendaDatabase {
         synchronized(this) {
@@ -23,7 +24,7 @@ object Database {
                 return database
 
             database = Room
-                .databaseBuilder(context, AgendaDatabase::class.java,"listaalunos-database")
+                .databaseBuilder(context, AgendaDatabase::class.java, NOME_DO_BANCO)
                 .allowMainThreadQueries()
                 .build()
 

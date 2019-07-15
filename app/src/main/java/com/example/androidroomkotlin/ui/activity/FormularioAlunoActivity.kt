@@ -1,6 +1,5 @@
 package com.example.androidroomkotlin.ui.activity
 
-import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -35,8 +34,8 @@ class FormularioAlunoActivity : AppCompatActivity() {
 
     private fun inicializacaoDosCampos() {
         campoNome = activity_formulario_aluno_nome
-        campoTelefone = findViewById(R.id.activity_formulario_aluno_telefone)
-        campoEmail = findViewById(R.id.activity_formulario_aluno_email)
+        campoTelefone = activity_formulario_aluno_telefone
+        campoEmail = activity_formulario_aluno_email
     }
 
     private fun carregaAluno() {
@@ -61,23 +60,23 @@ class FormularioAlunoActivity : AppCompatActivity() {
         var itemId = item!!.itemId
 
         if (itemId == R.id.activity_formulario_aluno_menu_salvar)
-            saveProduct()
+            salvarAluno()
 
         return super.onOptionsItemSelected(item)
     }
 
-    private fun saveProduct() {
+    private fun salvarAluno() {
         SaveNote().execute()
     }
 
     inner class SaveNote : AsyncTask<Void, Void, Void>() {
         override fun doInBackground(vararg params: Void?): Void? {
-            val createdProduct = create()
+            val createdAluno = create()
 
-            if (createdProduct.id == 0L)
-                alunoDao.add(createdProduct)
+            if (createdAluno.id == 0L)
+                alunoDao.add(createdAluno)
             else
-                alunoDao.update(createdProduct)
+                alunoDao.update(createdAluno)
 
             finish()
             return null
@@ -86,8 +85,8 @@ class FormularioAlunoActivity : AppCompatActivity() {
 
     private fun create(): Aluno {
         var nome = campoNome.text.toString()
-        var email = activity_formulario_aluno_email.text.toString()
-        var telefone = activity_formulario_aluno_telefone.text.toString()
+        var email = campoEmail.text.toString()
+        var telefone = campoTelefone.text.toString()
 
         if (aluno == null)
             return Aluno(nome = nome, email = email, telefone = telefone)
