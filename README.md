@@ -1,2 +1,2 @@
-# AndroidRoomKotlin
-Este projeto base, tem como objetivo a utilização da biblioteca Room utilizando a linguagem Kotlin.
+# Android Room Kotlin
+Esse repositório tem o objetivo de prover um projeto base para uso da lib Room, utilizando a linguagem Kotlin.
